@@ -274,6 +274,7 @@
             </section><!-- End Details Section -->
 
             <!-- ======= Gallery Section ======= -->
+
             <section id="gallery" class="gallery">
               <div class="container">
 
@@ -282,10 +283,19 @@
                   <p>Checa nuestros estilos</p>
                 </div>
 
-                <div class="row g-0" data-aos="fade-left">
+                <h2>Filtro por categorias</h2>
+                <div id="todo" class="center">
+                    <button onclick="filtcategories('all')">Mostrar todos</button>
+                    <button data-category="evento">evento</button>
+                    <button data-category="trabajo">trabajo</button>
+                    <button data-category="luces">luces</button>
+                    <button data-category="sin_luces">sin luces</button>
+                    <button data-category="extras">extras</button>
+                </div>
 
+                <div class="row g-0" data-aos="fade-left">
                   <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item evento" data-aos="zoom-in" data-aos-delay="100">
                       <a href="img/gallery/gallery-1.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-1.jpg" alt="" class="img-fluid">
                       </a>
@@ -293,7 +303,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="gallery-item trabajo" data-aos="zoom-in" data-aos-delay="150">
                       <a href="img/gallery/gallery-2.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-2.jpg" alt="" class="img-fluid">
                       </a>
@@ -301,7 +311,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item luces" data-aos="zoom-in" data-aos-delay="200">
                       <a href="img/gallery/gallery-3.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-3.jpg" alt="" class="img-fluid">
                       </a>
@@ -309,14 +319,14 @@
                   </div>
 
                   <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="gallery-item sin_luces" data-aos="zoom-in" data-aos-delay="250">
                       <a href="img/gallery/gallery-4.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-4.jpg" alt="" class="img-fluid">
                       </a>
                     </div>
                   </div>
 
-                  <div class="col-lg-3 col-md-4">
+                  <div class="col-lg-3 col-md-4 extras">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
                       <a href="img/gallery/gallery-5.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-5.jpg" alt="" class="img-fluid">
@@ -324,7 +334,7 @@
                     </div>
                   </div>
 
-                  <div class="col-lg-3 col-md-4">
+                  <div class="col-lg-3 col-md-4 luces">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350">
                       <a href="img/gallery/gallery-6.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-6.jpg" alt="" class="img-fluid">
@@ -332,7 +342,7 @@
                     </div>
                   </div>
 
-                  <div class="col-lg-3 col-md-4">
+                  <div class="col-lg-3 col-md-4 evento">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
                       <a href="img/gallery/gallery-7.jpg" class="gallery-lightbox">
                         <img src="img/gallery/gallery-7.jpg" alt="" class="img-fluid">
@@ -352,7 +362,31 @@
 
               </div>
             </section><!-- End Gallery Section -->
+            <script>
+            function filtcategories() {
+                console.log("holaa")
+            }
+/*                 document.addEventListener("DOMContentLoaded", function() {
+                    // Asignar eventos de clic a los botones de filtro
+                    document.querySelectorAll('#todo button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            filtcategories(this.dataset.category);
+                        });
+                    });
 
+                function filtcategories(c) {
+                    console.log("hola")
+                var all = document.querySelectorAll(".gallery-item");
+                all.forEach(i => {
+                    if (c === 'all' || i.classList.contains(c)) {
+                        i.style.display = "block";
+                    } else {
+                        i.style.display = "none";
+                    }
+                });
+                }
+                }) */
+            </script>
             <!-- ======= Testimonials Section ======= -->
             <section id="testimonials" class="testimonials">
               <div class="container">
@@ -434,7 +468,7 @@
                           </div>
                       </div>
                   </div>
-              
+
                   <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                       <div class="member" data-aos="zoom-in" data-aos-delay="200">
                           <div class="pic"><img src="img/team/team-1.jpg" class="img-fluid" alt="Equipo 2"></div>
@@ -450,7 +484,7 @@
                           </div>
                       </div>
                   </div>
-              
+
                   <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                       <div class="member" data-aos="zoom-in" data-aos-delay="300">
                           <div class="pic"><img src="img/team/team-4.jpg" class="img-fluid" alt="Equipo 3"></div>
@@ -466,7 +500,7 @@
                           </div>
                       </div>
                   </div>
-              
+
                   <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                       <div class="member" data-aos="zoom-in" data-aos-delay="400">
                           <div class="pic"><img src="img/team/team-3.jpg" class="img-fluid" alt="Equipo 4"></div>
@@ -482,9 +516,9 @@
                           </div>
                       </div>
                   </div>
-              
+
               </div>
-              
+
 
               </div>
             </section><!-- End Team Section -->
@@ -497,9 +531,9 @@
                     <h2>Nuestros Precios</h2>
                     <p>Consulta nuestras tarifas</p>
                 </div>
-            
+
                 <div class="row" data-aos="fade-left">
-            
+
                     <div class="col-lg-3 col-md-6">
                         <div class="box" data-aos="zoom-in" data-aos-delay="100">
                             <h3>Básico</h3>
@@ -516,7 +550,7 @@
                             </div>
                         </div>
                     </div>
-            
+
                     <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
                         <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
                             <h3>Negocios</h3>
@@ -533,7 +567,7 @@
                             </div>
                         </div>
                     </div>
-            
+
                     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
                         <div class="box" data-aos="zoom-in" data-aos-delay="300">
                             <h3>Desarrollador</h3>
@@ -550,7 +584,7 @@
                             </div>
                         </div>
                     </div>
-            
+
                     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
                         <div class="box" data-aos="zoom-in" data-aos-delay="400">
                             <span class="advanced">Avanzado</span>
@@ -568,10 +602,10 @@
                             </div>
                         </div>
                     </div>
-            
+
                 </div>
-            
-            </div>            
+
+            </div>
             </section><!-- End Pricing Section -->
 
             <!-- ======= F.A.Q Section ======= -->
@@ -582,7 +616,7 @@
                     <h2>Preguntas Frecuentes</h2>
                     <p>Preguntas Frecuentes</p>
                 </div>
-            
+
                 <div class="faq-list">
                     <ul>
                         <li data-aos="fade-up">
@@ -593,7 +627,7 @@
                                 </p>
                             </div>
                         </li>
-            
+
                         <li data-aos="fade-up" data-aos-delay="100">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">¿Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
@@ -602,7 +636,7 @@
                                 </p>
                             </div>
                         </li>
-            
+
                         <li data-aos="fade-up" data-aos-delay="200">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">¿Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
@@ -611,7 +645,7 @@
                                 </p>
                             </div>
                         </li>
-            
+
                         <li data-aos="fade-up" data-aos-delay="300">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">¿Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
@@ -620,7 +654,7 @@
                                 </p>
                             </div>
                         </li>
-            
+
                         <li data-aos="fade-up" data-aos-delay="400">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">¿Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
@@ -629,12 +663,12 @@
                                 </p>
                             </div>
                         </li>
-            
+
                     </ul>
                 </div>
-            
+
             </div>
-            
+
             </section><!-- End F.A.Q Section -->
 
             <!-- ======= Contact Section ======= -->
@@ -645,9 +679,9 @@
                     <h2>Contacto</h2>
                     <p>Contáctenos</p>
                 </div>
-            
+
                 <div class="row">
-            
+
                     <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
                         <div class="info">
                             <div class="address">
@@ -655,13 +689,13 @@
                                 <h4>Ubicación:</h4>
                                 <p>Calle Principal, Colonia Centro, Guadalajara, Jalisco, México</p>
                             </div>
-            
+
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
                                 <p>artvent@example.com</p>
                             </div>
-            
+
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Llamada:</h4>
@@ -669,7 +703,7 @@
                             </div>
                         </div>
                     </div>
-            
+
                     <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
@@ -694,8 +728,8 @@
                             <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
                         </form>
                     </div>
-            
-            
+
+
             </section><!-- End Contact Section -->
 
           </main><!-- End #main -->
@@ -705,7 +739,7 @@
             <div class="footer-top">
               <div class="container">
                   <div class="row">
-          
+
                       <div class="col-lg-4 col-md-6">
                           <div class="footer-info">
                               <h3>Mas informacion</h3>
@@ -725,7 +759,7 @@
                               </div>
                           </div>
                       </div>
-          
+
                       <div class="col-lg-2 col-md-6 footer-links">
                           <h4>Enlaces Útiles</h4>
                           <ul>
@@ -736,7 +770,7 @@
                               <li><i class="bx bx-chevron-right"></i> <a href="#">Política de privacidad</a></li>
                           </ul>
                       </div>
-          
+
                       <div class="col-lg-2 col-md-6 footer-links">
                           <h4>Nuestros Servicios</h4>
                           <ul>
@@ -747,7 +781,7 @@
                               <li><i class="bx bx-chevron-right"></i> <a href="#">Diseño Gráfico</a></li>
                           </ul>
                       </div>
-          
+
                       <div class="col-lg-4 col-md-6 footer-newsletter">
                           <h4>Nuestro Boletín</h4>
                           <p>Te espermos, dudas o preguntas estamos a tu servicio</p>
@@ -755,11 +789,11 @@
                               <input type="email" name="email" placeholder="Tu Email"><input type="submit" value="Suscribirse">
                           </form>
                       </div>
-          
+
                   </div>
               </div>
           </div>
-          
+
 
             <div class="container">
               <div class="copyright">

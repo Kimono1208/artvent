@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PiezasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,13 @@ Route::view('piezas','formulariosc/piezas');
 Route::view('clientes','formulariosc/clientes');
 Route::view('evento','formulariosc/eventos');
 Route::view('toldos','formulariosc/toldos');
+
+//controlador
+Route::get('/admin/piezas',[PiezasController::class,'listado'])->name('piezas.index');
+Route::get('/admin/piezas/{id}',[PiezasController::class,'select'])->name('piezas.show');
+Route::get('/admin/piezas/formulario',[PiezasController::class,'formulario'])->name('piezas.create');
+Route::get('/admin/piezas/{id}/editar',[PiezasController::class,'editar'])->name('piezas.edit');
+Route::post('/admin/piezas/insertar',[PiezasController::class,'guardar'])->name('piezas.store');
+Route::put('/admin/piezas/{id}',[PiezasController::class,'actualizar'])->name('piezas.update');
+Route::delete('/admin/piezas/{id}',[PiezasController::class,'borrar'])->name('piezas.delete');
+

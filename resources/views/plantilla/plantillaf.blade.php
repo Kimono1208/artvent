@@ -23,7 +23,7 @@
 
 <!-- Font Awesome Icons -->
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-<script src="../js/form.js"></script>
+<script src="{{ asset('../js/form.js') }} "></script>
 
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -47,11 +47,11 @@
 
 
   <body class="g-sidenav-show  bg-gray-100">
-    
 
-    
 
-    
+
+
+
       <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
 
   <div class="sidenav-header">
@@ -67,135 +67,135 @@
 
   <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
     <ul class="navbar-nav">
-      
 
-      
-        
 
-          
 
-          
-  
+
+
+
+
+
+
 <li class="nav-item">
   <a class="nav-link text-white " href="../admin/dashboard">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">dashboard</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Dashboard</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="../admin/tables">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">table_view</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Tables</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="./billing.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">receipt_long</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Billing</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="./virtual-reality.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">view_in_ar</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Virtual Reality</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="./rtl.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">RTL</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="./notifications.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">notifications</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Notifications</span>
   </a>
 </li>
 
-  
+
     <li class="nav-item mt-3">
       <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
     </li>
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="./profile.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">person</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Profile</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="pages/sign-in.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">login</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Sign In</span>
   </a>
 </li>
 
-  
+
 <li class="nav-item">
   <a class="nav-link text-white " href="pages/sign-up.html">
-    
+
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">assignment</i>
       </div>
-    
+
     <span class="nav-link-text ms-1">Sign Up</span>
   </a>
 </li>
 
 
 
-          
 
-        
-      
+
+
+
     </ul>
   </div>
-  
+
 </aside>
 
       <main class="main-content border-radius-lg ">
@@ -204,13 +204,13 @@
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
   <div class="container-fluid py-1 px-3">
     <nav aria-label="breadcrumb">
-      
+
       <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">index</li>
       </ol>
       <h6 class="font-weight-bolder mb-0">index</h6>
-      
+
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <ul class="navbar-nav  justify-content-end">
@@ -293,9 +293,9 @@
         <li class="nav-item d-flex align-items-center">
           <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
             <i class="fa fa-user me-sm-1"></i>
-            
+
             <span class="d-sm-inline d-none">Sign In</span>
-            
+
           </a>
         </li>
       </ul>
@@ -307,10 +307,10 @@
 <!-- End Navbar -->
 
 
-        
 
 
-            <div class="container-fluid py-4">
+
+{{--             <div class="container-fluid py-4">
 
 <div class="row">
   <div class="col-12">
@@ -318,7 +318,7 @@
       <canvas width="700" height="600" class="w-lg-100 h-lg-100 w-75 h-75 me-lg-0 me-n10 mt-lg-5"></canvas>
     </div>
   </div>
-</div>
+</div> --}}
 
 
                 <footer class="footer py-4  ">
@@ -346,11 +346,11 @@
 
             </div>
 
-         
-       </main>
-    
 
-      
+       </main>
+
+
+
           <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-icons py-2">settings</i>
@@ -386,7 +386,7 @@
         </a>
 
         <!-- Sidenav Type -->
-        
+
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
           <p class="text-sm">Choose between 2 different sidenav types.</p>
@@ -399,19 +399,19 @@
         </div>
 
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        
+
 
         <!-- Navbar Fixed -->
-        
+
         <div class="mt-3 d-flex">
           <h6 class="mb-0">Navbar Fixed</h6>
           <div class="form-check form-switch ps-0 ms-auto my-auto">
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
           </div>
         </div>
-        
 
-        
+
+
         <hr class="horizontal dark my-3">
         <div class="mt-2 d-flex">
           <h6 class="mb-0">Light / Dark</h6>
@@ -424,8 +424,8 @@
     </div>
 </div>
 
-      
-      
+
+
 
 
 

@@ -12,35 +12,35 @@
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" value="" required>
+            <input type="text" class="form-control" name="nombre" id="nombre" value="" required>
             <div class="valid-feedback">
                 ¡Correcto!
             </div>
         </div>
         <div class="col-md-4">
             <label for="lugar" class="form-label">Lugar</label>
-            <input type="text" class="form-control" id="lugar" value="" required>
+            <input type="text" class="form-control" name="lugar" id="lugar" value="" required>
             <div class="valid-feedback">
                 ¡Correcto!
             </div>
         </div>
         <div class="col-md-4">
             <label for="toldo" class="form-label">Toldo</label>
-            <input type="text" class="form-control" id="toldo" value="" required>
+            <input type="text" class="form-control" name="toldo" id="toldo" value="" required>
             <div class="invalid-feedback">
                 Por favor, proporciona información sobre el toldo.
             </div>
         </div>
         <div class="col-md-4">
             <label for="cliente" class="form-label">Cliente</label>
-            <input type="text" class="form-control" id="cliente" value="" required>
+            <input type="text" class="form-control" name="cliente" id="cliente" value="" required>
             <div class="invalid-feedback">
                 Por favor, proporciona información sobre el cliente.
             </div>
         </div>
         <div class="col-md-4">
             <label for="precio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="precio" required>
+            <input type="text" class="form-control" name="precio" id="precio" required>
             <div class="invalid-feedback">
                 Por favor, proporciona un precio válido.
             </div>
@@ -49,6 +49,6 @@
             <button class="btn btn-primary" type="submit">Enviar formulario</button>
         </div>
     </form>
-    <script src="../js/form.js"></script>
+    <script src="{{ asset('../js/form.js') }} "></script>
 
 @endsection

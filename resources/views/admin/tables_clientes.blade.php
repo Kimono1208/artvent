@@ -4,13 +4,13 @@
 
 @section('contenido')
 <div class="container-fluid py-4">
-    <button class="bg-cover m-3 " ><a href="{{ route("piezas.create") }}">Añadir nueva pieza</a></button>
+    <button class="bg-cover m-3 " ><a href="{{ route("clientes.create") }}">Añadir nueva cliente</a></button>
     <div class="row">
       <div class="col-12">
         <div class="card my-4">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-capitalize ps-3">Piezas</h6>
+              <h6 class="text-white text-capitalize ps-3">clientes</h6>
             </div>
           </div>
           <div class="card-body px-0 pb-2">
@@ -30,21 +30,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($piezas as $pieza)
+                    @foreach ($clientes as $cliente)
                     <tr>
-                        <th class="text-center" scope="row">{{ $pieza->id_pieza }}</th>
+                        <th class="text-center" scope="row">{{ $cliente->id_cliente }}</th>
                         {{-- <td></td> --}}
-                        <td class="text-center">{{ $pieza->nombre }}</td>
-                        <td class="text-center">{{ $pieza->medidas }}</td>
-                        <td class="text-center">{{ $pieza->exclusiva }}</td>
-                        <td class="text-center">{{ $pieza->combinacion }}</td>
-                        <td class="text-center">{{ $pieza->descripcion }}</td>
-                        <td class="text-center">{{ $pieza->cantidad }}</td>
-                        <td class="text-center"><a href="{{ route("piezas.show", ['id' => $pieza->id_pieza]) }}">Ver mas</a></td>
+                        <td class="text-center">{{ $cliente->nombre }}</td>
+                        <td class="text-center">{{ $cliente->rfc }}</td>
+                        <td class="text-center">{{ $cliente->numero_telefono }}</td>
+                        <td class="text-center">{{ $cliente->direccion }}</td>
+                        <td class="text-center">{{ $cliente->id_imagen_cliente }}</td>
+                        <td class="text-center">{{ $cliente->email }}</td>
+                        <td class="text-center">{{ $cliente->estatus }}</td>
+                        <td class="text-center">{{ $cliente->adeudo }}</td>
+                        <td class="text-center"><a href="{{ route("clientes.show", ['id' => $cliente->id_cliente]) }}">Ver mas</a></td>
                         <td>
-                        <td class="text-center"><a href="{{ route("piezas.edit", ['id' => $pieza->id_pieza]) }}">Editar</a></td>
+                        <td class="text-center"><a href="{{ route("clientes.edit", ['id' => $cliente->id_cliente]) }}">Editar</a></td>
                         <td>
-                            <form action="{{ route("piezas.delete", ['id' => $pieza->id_pieza]) }}" method="post">
+                            <form action="{{ route("clientes.delete", ['id' => $cliente->id_cliente]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">Eliminar</button>
@@ -52,63 +54,6 @@
                         </td>
                     </tr>
                     @endforeach
-
-{{--                     <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">John Michael</h6>
-                          <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs font-weight-bold mb-0">Manager</p>
-                      <p class="text-xs text-secondary mb-0">Organization</p>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="badge badge-sm bg-gradient-success">Online</span>
-                    </td>
-                    <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                    </td>
-                    <td class="align-middle">
-                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
-                    </td>
-                  </tr> --}}
-{{--                <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user2">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                          <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs font-weight-bold mb-0">Programator</p>
-                      <p class="text-xs text-secondary mb-0">Developer</p>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                    </td>
-                    <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                    </td>
-                    <td class="align-middle">
-                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
-                    </td>
-                    </tr> --}}
                 </tbody>
               </table>
             </div>
@@ -142,7 +87,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                          <img src="{{ asset("../assets/img/small-logos/logo-asana.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Asana</h6>
@@ -175,7 +120,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="../assets/img/small-logos/github.svg" class="avatar avatar-sm rounded-circle me-2" alt="invision">
+                          <img src="{{ asset("../assets/img/small-logos/github.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="invision">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Github</h6>
@@ -208,7 +153,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="../assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm rounded-circle me-2" alt="jira">
+                          <img src="{{ asset("../assets/img/small-logos/logo-atlassian.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="jira">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Atlassian</h6>
@@ -241,7 +186,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="../assets/img/small-logos/bootstrap.svg" class="avatar avatar-sm rounded-circle me-2" alt="webdev">
+                          <img src="{{ asset("../assets/img/small-logos/bootstrap.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="webdev">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Bootstrap</h6>
@@ -274,7 +219,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2" alt="slack">
+                          <img src="{{ asset("../assets/img/small-logos/logo-slack.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="slack">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Slack</h6>
@@ -307,7 +252,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="../assets/img/small-logos/devto.svg" class="avatar avatar-sm rounded-circle me-2" alt="xd">
+                          <img src="{{ asset("../assets/img/small-logos/devto.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="xd">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Devto</h6>

@@ -16,6 +16,7 @@
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
 <h2>Select</h2>
+<a href="{{ route("piezas.index") }}" class="btn btn-secondary">Regresar</a>
 <table class="table align-items-center mb-0">
     <thead>
       <tr>

@@ -19,7 +19,7 @@ class PiezasController extends Controller
             'cantidad' => $req->cantidad,
         ]);
         $piezas = DB::table('piezas')->get();
-        return view("/admin/tables", ['piezas'=> $piezas]);
+        return view("/admin/tables_piezas", ['piezas'=> $piezas]);
         // return 'Saludos desde la funcion guardar';
     }
     public function actualizar(Request $req)
@@ -42,14 +42,14 @@ class PiezasController extends Controller
         // $piezas = DB::table('piezas')->get();
         $piezas = DB::table('piezas')->get();
         DB::table('piezas')->where('id_pieza', $id)->delete();
-        return redirect('/admin/tables', ['piezas'=> $piezas]);
+        return redirect('/admin/tables_piezas', ['piezas'=> $piezas]);
 
         // return 'Hola desde la funcion borrar';
     }
     public function listado()
     {
         $piezas = DB::table('piezas')->get();
-        return view('/admin/tables', ['piezas'=> $piezas]);
+        return view('/admin/tables_piezas', ['piezas'=> $piezas]);
     }
     public function select($id)
     {

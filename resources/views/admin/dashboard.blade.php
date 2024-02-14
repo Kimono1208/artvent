@@ -255,7 +255,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="../assets/img/small-logos/logo-atlassian.svg"
+                                                        <img src="{{ asset("../assets/img/small-logos/logo-atlassian.svg") }}"
                                                             class="avatar avatar-sm me-3" alt="atlassian">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -299,7 +299,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="../assets/img/small-logos/logo-slack.svg"
+                                                        <img src="{{ asset("../assets/img/small-logos/logo-slack.svg") }}"
                                                             class="avatar avatar-sm me-3" alt="team7">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">

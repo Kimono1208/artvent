@@ -26,6 +26,9 @@
         <div class="valid-feedback">
           ¡Correcto!
         </div>
+        <div class="invalid-feedback">
+            Por favor, proporciona información sobre el nombre.
+          </div>
       </div>
       <div class="col-md-4">
         <label for="medidas" class="form-label">Medidas</label>

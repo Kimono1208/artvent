@@ -17,7 +17,6 @@ class PiezasController extends Controller
             'combinacion' => $req->combinacion,
             'descripcion' => $req->descripcion,
             'cantidad' => $req->cantidad,
-            'estatus' => 1
         ]);
         $piezas = DB::table('piezas')->get();
         return view("/admin/tables_piezas", ['piezas'=> $piezas]);
@@ -32,7 +31,6 @@ class PiezasController extends Controller
             'combinacion' => $req->combinacion,
             'descripcion' => $req->descripcion,
             'cantidad' => $req->cantidad,
-            'estatus' => $req->estatus
         ]);
         $piezas = DB::table('piezas')->get();
         return to_route('piezas.index', ['piezas'=> $piezas]);
@@ -41,16 +39,12 @@ class PiezasController extends Controller
     }
     public function borrar($id)
     {
-        $pieza = DB::table('piezas')->where('id_pieza', $id)->first();
-        $nuevoEstatus = $pieza->estatus == 1 ? 2 : 1;
-
-        DB::table('piezas')->where('id_pieza', $id)->update([
-            'estatus' => $nuevoEstatus
-        ]);
-
+        // $piezas = DB::table('piezas')->get();
         $piezas = DB::table('piezas')->get();
-        // DB::table('piezas')->where('id_pieza', $id)->delete();
+        DB::table('piezas')->where('id_pieza', $id)->delete();
         return to_route('piezas.index', ['piezas'=> $piezas]);
+
+        // return 'Hola desde la funcion borrar';
     }
     public function listado()
     {

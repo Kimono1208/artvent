@@ -22,7 +22,7 @@ class clientesController extends Controller
             'rfc' => $req->rfc,
             'numero_telefono' => $req->numero_telefono,
             'direccion' => $req->direccion,
-            'id_imagen_cliente' => $req->id_imagen_cliente,
+            // 'id_imagen_cliente' => $req->id_imagen_cliente,
             'email' => $req->estatus,
             'adeudo' => $req->adeudo
         ]);
@@ -51,7 +51,7 @@ class clientesController extends Controller
         // $clientes = DB::table('clientes')->get();
         $clientes = DB::table('clientes')->get();
         DB::table('clientes')->where('id_cliente', $id)->delete();
-        return redirect('/admin/tables_clientes', ['clientes'=> $clientes]);
+        return view('/admin/tables_clientes', ['clientes'=> $clientes]);
 
         // return 'Hola desde la funcion borrar';
     }

@@ -25,7 +25,6 @@
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Combinacion</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Descripcion</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cantidad</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estatus</th>
 
                     <th class="text-secondary opacity-7"></th>
                   </tr>
@@ -41,19 +40,14 @@
                         <td class="text-center">{{ $pieza->combinacion }}</td>
                         <td class="text-center">{{ $pieza->descripcion }}</td>
                         <td class="text-center">{{ $pieza->cantidad }}</td>
-                        <td class="text-center">{{ $pieza->estatus != 2 ? "Activo" : "Desactivado" }}</td>
-{{--                         <td class="text-center">{{!! $estatus = 2 ? "Desactivado" !!}}</td> --}}
                         <td class="text-center"><a href="{{ route("piezas.show", ['id' => $pieza->id_pieza]) }}">Ver mas</a></td>
                         <td>
                         <td class="text-center"><a href="{{ route("piezas.edit", ['id' => $pieza->id_pieza]) }}">Editar</a></td>
                         <td>
-{{--                         <td class="text-center"><a href="{{ route("piezas.delete", ['id' => $pieza->id_pieza]) }}">Desactivar</a></td> --}}
-                        <td>
                             <form action="{{ route("piezas.delete", ['id' => $pieza->id_pieza]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">{{ $pieza->estatus != 2 ? "
-                                Desactivar" : "Activar" }}</button>
+                                <button type="submit">Eliminar</button>
                             </form>
                         </td>
                     </tr>

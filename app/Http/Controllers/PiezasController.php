@@ -9,6 +9,16 @@ class PiezasController extends Controller
 {
     public function guardar(Request $req)
     {
+        $req->validate([
+            'nombre' =>'required',
+            'medidas' =>'required',
+            'exclusiva' => ['required','integer'],
+            'combinacion' => 'required',
+            'descripcion' => ['required','max:255'],
+            'cantidad' => 'required|integer',
+            // 'estatus' => 'required|integer',
+        ]);
+
         // dd($req->all());
         DB::table('piezas')->insert([
             'nombre' => $req->nombre,
@@ -25,6 +35,16 @@ class PiezasController extends Controller
     }
     public function actualizar(Request $req)
     {
+        $req->validate([
+            'nombre' =>'required',
+            'medidas' =>'required',
+            'exclusiva' => ['required|integer'],
+            'combinacion' => 'required',
+            'descripcion' => ['required','max:255'],
+            'cantidad' => 'required|integer',
+            // 'estatus' => 'required|integer',
+        ]);
+
         DB::table('piezas')->where('id_pieza', $req->id_pieza)->update([
             'nombre' => $req->nombre,
             'medidas' => $req->medidas,
@@ -76,7 +96,7 @@ class PiezasController extends Controller
         return view('formulariosc.piezas', ['pieza' => $pieza]);
         // return 'Saludos desde la funcion editar';
     }
-    public function formulario()
+public function formulario()
     {
         return view('formulariosc.piezas');
         // return 'Saludos desde la funcion formulario';

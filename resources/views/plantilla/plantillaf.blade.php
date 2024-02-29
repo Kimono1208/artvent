@@ -77,7 +77,7 @@
 
 
 <li class="nav-item">
-  <a class="nav-link text-white " href="../admin/dashboard">
+  <a class="nav-link text-white " href="dashboard">
 
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">dashboard</i>
@@ -89,7 +89,7 @@
 
 
 <li class="nav-item">
-  <a class="nav-link text-white " href="../admin/tables">
+  <a class="nav-link text-white " href="tables">
 
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">table_view</i>

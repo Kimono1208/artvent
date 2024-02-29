@@ -17,7 +17,7 @@
                                 <p class="text-sm mb-0 text-capitalize">Eventos del mes</p>
                                 <h4 class="mb-0">$53k</h4>
                             </div>
-                            <button><a href="evento">Registrar</a></button>
+                            <button><a href="{{route("eventos.index")}}">Registrar</a></button>
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-footer p-3">
@@ -36,7 +36,7 @@
                                 <p class="text-sm mb-0 text-capitalize">Clientes</p>
                                 <h4 class="mb-0">150</h4>
                             </div>
-                            <button><a href="clientes">Registrar</a></button>
+                            <button><a href="{{route("clientes.index")}}">Registrar</a></button>
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-footer p-3">
@@ -55,7 +55,7 @@
                                 <p class="text-sm mb-0 text-capitalize">Piezas</p>
                                 <h4 class="mb-0">230</h4>
                             </div>
-                            <button><a href="piezas">Registrar</a></button>
+                            <button><a href="{{route("piezas.index")}}">Registrar</a></button>
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-footer p-3">
@@ -74,7 +74,7 @@
                                 <p class="text-sm mb-0 text-capitalize">Toldos</p>
                                 <h4 class="mb-0">25 ejemplares</h4>
                             </div>
-                            <button><a href="toldos">Registrar</a></button>
+                            <button><a href="{{route("toldos.index")}}">Registrar</a></button>
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-footer p-3">

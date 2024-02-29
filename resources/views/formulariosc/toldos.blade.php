@@ -15,7 +15,7 @@
         <h2 class="title">{{ isset($toldo) ? 'Actualizar' : '' }} toldos FORMULARIO</h2>
         {!! isset($toldo) ? '<b>Indice de toldo: </b>'.$toldo->id_toldo : '' !!}
     </div>
-    <form class="form_cont contenedor row g-4 needs-validation" novalidate method="POST" action="{{
+    <form enctype="multipart/form-data" class="form_cont contenedor row g-4 needs-validation" novalidate method="POST" action="{{
         isset($toldo) ? route("toldos.update", ['id' => $toldo->id_toldo]) : route("toldos.store") }}">
             @csrf
             @if(isset($toldo))
@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-6">
             <label for="combinacion" class="form-label">id_imagen_toldo</label>
-            <input type="text" class="form-control" name="id_imagen_toldo" id="id_imagen_toldo" value="{{ isset($toldo) ? $toldo->id_imagen_toldo : '' }}" required>
+            <input type="file" class="form-control" name="id_imagen_toldo" accept="imagen/*" id="id_imagen_toldo" value="{{ isset($toldo) ? $toldo->id_imagen_toldo : '' }}">
             <div class="invalid-feedback">
                 Por favor, proporciona información válida.
             </div>

@@ -24,7 +24,7 @@
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Medidas</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">color</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id_imagen_toldo</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">imagen_toldo</th>
                     <th class="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
@@ -35,7 +35,9 @@
                         <td class="text-center">{{ $toldo->nombre }}</td>
                         <td class="text-center">{{ $toldo->medidas }}</td>
                         <td class="text-center">{{ $toldo->color }}</td>
-                        <td class="text-center">{{ $toldo->id_imagen_toldo }}</td>
+                        <td class="text-center">
+                            <img src="{{ asset('storage/'.$imagen->datos_archivo) }}" alt="imagen" width="150">
+                        </td>
                         <td class="text-center"><a href="{{ route("toldos.edit", ['id' => $toldo->id_toldo]) }}">Editar</a></td>
                         <td>
                             <form action="{{ route("toldos.delete", ['id' => $toldo->id_toldo]) }}" method="post">

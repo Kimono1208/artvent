@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\PiezasController;
 use App\Http\Controllers\toldosController;
 use App\Http\Controllers\eventosController;
 use App\Http\Controllers\clientesController;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +31,6 @@ Route::view('gallery','cliente/gal');
 Route::view('team','cliente/equi');
 Route::view('pricing','cliente/prec');
 Route::view('features','cliente/cara');
-Route::view('dashboard','admin/dashboard');
 Route::view('tables','admin/tables');
 Route::view('piezas','formulariosc/piezas');
 Route::view('clientes','formulariosc/clientes');
@@ -74,3 +75,26 @@ Route::get('/admin/clientes/{id}/editar',[clientesController::class,'editar'])->
 Route::get('/admin/clientes/{id}',[clientesController::class,'select'])->name('clientes.show');
 Route::put('/admin/clientes/{id}',[clientesController::class,'actualizar'])->name('clientes.update');
 Route::delete('/admin/clientes/{id}',[clientesController::class,'borrar'])->name('clientes.delete');
+
+//LOGIN AND AUTHENTICATE
+Route::get('/login',[LoginController::class,'show'])->name('login');
+Route::post('/authentication',[LoginController::class,'authenticate'])->name('authenticate');
+
+
+Route::get('/logout',[LoginController::class,'logOut'])->name('logout')->middleware('auth');
+Route::get('/dashboard',[LoginController::class,'dashboard'])->name("dashboard")->middleware('auth');
+
+
+Route::get('/users/insert', function () {
+    $user=new \App\Models\User();
+    $user->name="juancha";
+    $user->email="juancha@gmail.com";
+    $user->password=Hash::make('juancha@gmail.com');
+    $user->image='storage/imagenes/usuarios/default.png';
+    $user->rol='worker';
+    $user->estatus=1;
+
+    $user->save();
+
+    return 'Usuario autenticado';
+});

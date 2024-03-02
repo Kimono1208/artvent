@@ -12,6 +12,10 @@
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
               <h6 class="text-white text-capitalize ps-3">Piezas</h6>
             </div>
+            <form class="d-flex align-items-center justify-center">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
           </div>
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">

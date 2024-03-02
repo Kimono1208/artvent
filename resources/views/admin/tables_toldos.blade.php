@@ -10,7 +10,7 @@
         <div class="card my-4">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-capitalize ps-3">Piezas</h6>
+              <h6 class="text-white text-capitalize ps-3">Toldos</h6>
             </div>
           </div>
           <div class="card-body px-0 pb-2">
@@ -28,13 +28,16 @@
                 </thead>
                 <tbody>
                     @foreach ($toldos as $toldo)
+                    <?php /* $ruta_imagen = DB::table('imagenes')->where('id_imagen', $toldo->id_imagen_toldo)->value('datos_archivo'); */ ?>
+                    <?php $imagen = DB::table('imagenes')->where('id_imagen', $toldo->id_imagen_toldo)->first(); ?>
                     <tr>
                         <th class="text-center" scope="row">{{ $toldo->id_toldo }}</th>
                         {{-- <td></td> --}}
                         <td class="text-center">{{ $toldo->nombre }}</td>
                         <td class="text-center">{{ $toldo->medidas }}</td>
                         <td class="text-center">{{ $toldo->color }}</td>
-                        <td><img src="/storage/{{$toldo->id_imagen_toldo}}" alt="{{$toldo->id_imagen_toldo}}" width="150"></td>
+                        <td><img src="{{asset('storage/'.$imagen->datos_archivo)}}" alt="{{$toldo->id_imagen_toldo}}" width="150" height="130"></td>
+                        <td class="text-center">{{ $toldo->estatus != 2 ? "Activo" : "Desactivado" }}</td>
                         <td class="text-center"><a href="{{ route("toldos.show", ['id' => $toldo->id_toldo]) }}">Ver mas</a></td>
                         <td>
                         <td class="text-center"><a href="{{ route("toldos.edit", ['id' => $toldo->id_toldo]) }}">Editar</a></td>
@@ -81,7 +84,7 @@
                     <td>
                       <div class="d-flex px-2">
                         <div>
-                          <img src="{{ asset("../assets/img/small-logos/logo-asana.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                          <img src="{{ asset("/assets/img/small-logos/logo-asana.svg") }}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                         </div>
                         <div class="my-auto">
                           <h6 class="mb-0 text-sm">Asana</h6>

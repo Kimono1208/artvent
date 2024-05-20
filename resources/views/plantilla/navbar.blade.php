@@ -114,10 +114,10 @@
                     @csrf
                 </form>
             </div>
-          <a href="{{ route("logout") }}" class="nav-link text-body font-weight-bold px-0">
+        <a href="{{ route("logout") }}" class="nav-link text-body font-weight-bold px-0">
             <i class="fa fa-user me-sm-1"></i>
             <span class="d-sm-inline d-none">Sign Out</span>
-          </a>
+        </a>
         </li>
       </ul>
     </div>

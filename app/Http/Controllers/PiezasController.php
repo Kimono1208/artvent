@@ -38,7 +38,7 @@ class PiezasController extends Controller
         $req->validate([
             'nombre' =>'required',
             'medidas' =>'required',
-            'exclusiva' => ['required|integer'],
+            'exclusiva' => ['required','integer'],
             'combinacion' => 'required',
             'descripcion' => ['required','max:255'],
             'cantidad' => 'required|integer',

@@ -2,74 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Eventos;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-
-class eventosController extends Controller
+class EventosController extends Controller
 {
-    public function guardar(Request $req)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        // dd($req->all());
-        DB::table('eventos')->insert([
-            'nombre' => $req->nombre,
-            'lugar' => $req->lugar,
-            'toldo' => $req->toldo,
-            'precio' => $req->precio,
-        ]);
-        $eventos = DB::table('eventos')->get();
-        return view("/admin/tables_eventos", ['eventos'=> $eventos]);
-        // return 'Saludos desde la funcion guardar';
+        //
     }
-    public function actualizar(Request $req)
-    {
-        DB::table('eventos')->where('id_evento', $req->id_evento)->update([
-            'nombre' => $req->nombre,
-            'lugar' => $req->lugar,
-            'toldo' => $req->toldo,
-            'precio' => $req->precio,
-        ]);
-        $eventos = DB::table('eventos')->get();
-        return to_route('eventos.index', ['eventos'=> $eventos]);
-        // return view('/admin/tables', ['eventos'=> $eventos]);
-        // return 'saludos desde la funcion actualizar';
-    }
-    public function borrar($id)
-    {
-        // $eventos = DB::table('eventos')->get();
-        $eventos = DB::table('eventos')->get();
-        DB::table('eventos')->where('id_evento', $id)->delete();
-        return redirect('/admin/tables_eventos', ['eventos'=> $eventos]);
 
-        // return 'Hola desde la funcion borrar';
-    }
-    public function listado()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        $eventos = DB::table('eventos')->get();
-        return view('/admin/tables_eventos', ['eventos'=> $eventos]);
+        //
     }
-    public function select($id)
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $evento = DB::table('eventos')->where('id_evento', $id)->first();
-        // console.log("gia");
-        if (!$evento) {
-            return 'No se encontró la evento con el ID proporcionado.';
-        }
-        return view('selects.evento_select', ['evento' => $evento]);
-        // return 'Saludos desde la funcion select id';
+        //
     }
-    public function editar($id)
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Eventos $eventos)
     {
-        $evento = DB::table('eventos')->where('id_evento', $id)->first();
-        if (!$evento) {
-            return 'No se encontró la evento con el ID proporcionado.';
-        }
-        return view('formulariosc.eventos', ['evento' => $evento]);
-        // return 'Saludos desde la funcion editar';
+        //
     }
-    public function formulario()
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Eventos $eventos)
     {
-        return view('formulariosc.eventos');
-        // return 'Saludos desde la funcion formulario';
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Eventos $eventos)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Eventos $eventos)
+    {
+        //
     }
 }

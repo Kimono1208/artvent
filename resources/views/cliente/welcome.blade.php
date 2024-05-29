@@ -396,7 +396,7 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <img src="img/testimonials/testimonial-1.jpg" class="testimonial-img" alt="Cliente 1">
+                                <img src="img/testimonials/testimonial-2.jpg" class="testimonial-img" alt="Cliente 1">
                                 <h3>Marta Gómez</h3>
                                 <h4>Cliente Satisfecho</h4>
                                 <p>
@@ -409,7 +409,7 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <img src="img/testimonials/testimonial-2.jpg" class="testimonial-img" alt="Cliente 2">
+                                <img src="img/testimonials/testimonial-1.jpg" class="testimonial-img" alt="Cliente 2">
                                 <h3>Juan Pérez</h3>
                                 <h4>Cliente Satisfecho</h4>
                                 <p>
@@ -618,54 +618,69 @@
                 </div>
 
                 <div class="faq-list">
-                    <ul>
-                        <li data-aos="fade-up">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">¿Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                                <p>
-                                    Preguntas sobre toldos
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="100">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">¿Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                  Preguntas sobre toldos
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="200">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">¿Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                  Preguntas sobre toldos
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="300">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">¿Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                  Preguntas sobre toldos
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="400">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">¿Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                  Preguntas sobre toldos
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
+                  <ul>
+                      <li data-aos="fade-up">
+                          <i class="bx bx-help-circle icon-help"></i> 
+                          <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">¿Qué tipos de toldos existen? 
+                              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                          </a>
+                          <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                              <p>
+                                  Existen varios tipos de toldos, incluyendo toldos retráctiles, toldos fijos, toldos verticales y toldos vela. Cada tipo tiene sus propias ventajas según las necesidades específicas de sombra y protección.
+                              </p>
+                          </div>
+                      </li>
+              
+                      <li data-aos="fade-up" data-aos-delay="100">
+                          <i class="bx bx-help-circle icon-help"></i> 
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">¿Cuál es la vida útil de un toldo? 
+                              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                          </a>
+                          <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                              <p>
+                                  La vida útil de un toldo puede variar dependiendo del material y la calidad del mismo. Generalmente, los toldos de alta calidad pueden durar entre 5 a 15 años con el cuidado y mantenimiento adecuados.
+                              </p>
+                          </div>
+                      </li>
+              
+                      <li data-aos="fade-up" data-aos-delay="200">
+                          <i class="bx bx-help-circle icon-help"></i> 
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">¿Cómo se limpia y mantiene un toldo? 
+                              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                          </a>
+                          <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                              <p>
+                                  Para limpiar un toldo, es recomendable usar agua y jabón suave, evitando productos químicos agresivos. Se debe enjuagar bien y dejar secar completamente antes de retraerlo. Además, es importante revisar regularmente las estructuras y los mecanismos para asegurar su buen funcionamiento.
+                              </p>
+                          </div>
+                      </li>
+              
+                      <li data-aos="fade-up" data-aos-delay="300">
+                          <i class="bx bx-help-circle icon-help"></i> 
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">¿Los toldos son resistentes al viento y la lluvia? 
+                              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                          </a>
+                          <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                              <p>
+                                  Muchos toldos están diseñados para ser resistentes al agua y al viento. Sin embargo, en condiciones climáticas extremas es recomendable retraer el toldo para evitar daños. Existen modelos específicos que ofrecen mayor resistencia a estos elementos.
+                              </p>
+                          </div>
+                      </li>
+              
+                      <li data-aos="fade-up" data-aos-delay="400">
+                          <i class="bx bx-help-circle icon-help"></i> 
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">¿Se pueden personalizar los toldos? 
+                              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                          </a>
+                          <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                              <p>
+                                  Sí, los toldos se pueden personalizar en cuanto a tamaño, color, material y diseño. Muchas empresas ofrecen opciones de personalización para adaptarse a las necesidades específicas y la estética del espacio donde se instalará el toldo.
+                              </p>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              
 
             </div>
 

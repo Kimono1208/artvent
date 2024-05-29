@@ -15,7 +15,7 @@
 
                   <div class="col-lg-3 col-md-6">
                       <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                          <div class="pic"><img src="img/team/team-1.jpg" class="img-fluid" alt="Equipo 1"></div>
+                          <div class="pic"><img src="img/team/team-2.jpg" class="img-fluid" alt="Equipo 1"></div>
                           <div class="member-info">
                               <h4>María López</h4>
                               <span>Directora Ejecutiva</span>
@@ -31,7 +31,7 @@
               
                   <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                       <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                          <div class="pic"><img src="img/team/team-2.jpg" class="img-fluid" alt="Equipo 2"></div>
+                          <div class="pic"><img src="img/team/team-1.jpg" class="img-fluid" alt="Equipo 2"></div>
                           <div class="member-info">
                               <h4>Carlos Rodríguez</h4>
                               <span>Gerente de Producto</span>
@@ -47,7 +47,7 @@
               
                   <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                       <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                          <div class="pic"><img src="img/team/team-3.jpg" class="img-fluid" alt="Equipo 3"></div>
+                          <div class="pic"><img src="img/team/team-4.jpg" class="img-fluid" alt="Equipo 3"></div>
                           <div class="member-info">
                               <h4>Andrea Martínez</h4>
                               <span>Director de Tecnología</span>
@@ -63,7 +63,7 @@
               
                   <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                       <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                          <div class="pic"><img src="img/team/team-4.jpg" class="img-fluid" alt="Equipo 4"></div>
+                          <div class="pic"><img src="img/team/team-3.jpg" class="img-fluid" alt="Equipo 4"></div>
                           <div class="member-info">
                               <h4>Luis Gómez</h4>
                               <span>Contador</span>

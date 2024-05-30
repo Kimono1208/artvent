@@ -42,9 +42,10 @@
         <td class="text-center">{{ $pieza->combinacion }}</td>
         <td class="text-center">{{ $pieza->descripcion }}</td>
         <td class="text-center">{{ $pieza->cantidad }}</td>
-        <td class="text-center"><a href="{{ route("piezas.edit", ['id' => $pieza->id_pieza]) }}">Editar</a></td>
+        <td class="text-center"><a href='admin/piezas/{{ $pieza->id_pieza }}/edit'>Editar</a></td>
+        {{-- route("piezas.edit", ['id' => $pieza->id_pieza]) --}}
         <td>
-            <form action="{{ route("piezas.delete", ['id' => $pieza->id_pieza]) }}" method="post">
+            <form action="'admin/piezas/{{$pieza->id_pieza }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Eliminar</button>

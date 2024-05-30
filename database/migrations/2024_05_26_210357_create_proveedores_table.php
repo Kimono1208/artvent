@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('toldos', function (Blueprint $table) {
+        Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('medidas');
-            $table->string('color');
-            $table->unsignedBigInteger('imagen_id')->nullable();
-            $table->string('estatus')->nullable();
+            $table->string('cantidad');
             $table->timestamps();
-
-            $table->foreign("imagen_id")->references('id')->on('imagenes');
         });
     }
 
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('toldos');
+        Schema::dropIfExists('proveedores');
     }
 };

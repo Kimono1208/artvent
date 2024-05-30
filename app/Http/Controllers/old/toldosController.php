@@ -22,6 +22,7 @@ class toldosController extends Controller
             'color' => $req->color,
             'id_imagen_toldo' => $id_imagen_toldo, //Esta es clave foranea que apunta al id de "imagenes"
         ]);
+        
         if($req->hasFile('id_imagen_toldo')){
             $extension=$req->id_imagen_toldo->extension();
             $nuevo='toldos'.$id.'.'.$extension;

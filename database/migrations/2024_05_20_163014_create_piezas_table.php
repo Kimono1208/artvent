@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('piezas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('medidas');
+            $table->string('exclusiva');
+            $table->string('combinacion')->nullable();
+            $table->string('desripcion')->nullable();
+            $table->string('cantidad')->nullable();
+            $table->string('estatus')->nullable();
             $table->timestamps();
         });
     }

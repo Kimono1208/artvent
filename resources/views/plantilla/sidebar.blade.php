@@ -78,7 +78,7 @@
     </li>
 
 
-@if (Auth::user()->isAdmin() || Auth::user()->isWorker())
+{{-- @if (Auth::user()->isAdmin() || Auth::user()->isWorker())
 
 
 <li class="nav-item">
@@ -118,7 +118,7 @@
         <span class="nav-link-text ms-1">Solo lo ve el worker</span>
     </a>
 </li>
-@endif
+@endif --}}
     </ul>
   </div>
 {{-- @endsection --}}

@@ -39,15 +39,14 @@ Route::view('toldos','formulariosc/toldos');
 
 //controlador
 //-----------PIEZAS
-Route::post('/admin/piezas/insertar',[PiezasController::class,'guardar'])->name('piezas.store');
+/* Route::post('/admin/piezas/insertar',[PiezasController::class,'guardar'])->name('piezas.store');
 Route::get('/admin/piezas',[PiezasController::class,'listado'])->name('piezas.index');
 Route::get('/admin/piezas/formulario',[PiezasController::class,'formulario'])->name('piezas.create');
 Route::get('/admin/piezas/{id}/editar',[PiezasController::class,'editar'])->name('piezas.edit');
 Route::get('/admin/piezas/{id}',[PiezasController::class,'select'])->name('piezas.show');
-
 Route::put('/admin/piezas/{id}',[PiezasController::class,'actualizar'])->name('piezas.update');
-Route::delete('/admin/piezas/{id}',[PiezasController::class,'borrar'])->name('piezas.delete');
-
+Route::delete('/admin/piezas/{id}',[PiezasController::class,'borrar'])->name('piezas.delete'); */
+Route::resource('/admin/piezas', PiezasController::class)/* ->middleware('auth') */;
 
 //-----------TOLDOS
 Route::post('/admin/toldos/insertar',[toldosController::class,'guardar'])->name('toldos.store');

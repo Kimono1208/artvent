@@ -37,7 +37,7 @@
                 <tbody>
                     @foreach ($piezas as $pieza)
                     <tr>
-                        <th class="text-center" scope="row">{{ $pieza->id_pieza }}</th>
+{{--                         <th class="text-center" scope="row">{{ $pieza->id_pieza }}</th> --}}
                         {{-- <td></td> --}}
                         <td class="text-center">{{ $pieza->nombre }}</td>
                         <td class="text-center">{{ $pieza->medidas }}</td>
@@ -47,13 +47,13 @@
                         <td class="text-center">{{ $pieza->cantidad }}</td>
                         <td class="text-center">{{ $pieza->estatus != 2 ? "Activo" : "Desactivado" }}</td>
 {{--                         <td class="text-center">{{!! $estatus = 2 ? "Desactivado" !!}}</td> --}}
-                        <td class="text-center"><a href="{{ route("piezas.show", ['id' => $pieza->id_pieza]) }}">Ver mas</a></td>
+                        <td class="text-center"><a href="{{ route("piezas.show", ['pieza' => $pieza->id_pieza]) }}">Ver mas</a></td>
                         <td>
-                        <td class="text-center"><a href="{{ route("piezas.edit", ['id' => $pieza->id_pieza]) }}">Editar</a></td>
+                        <td class="text-center"><a href="{{ route("piezas.edit", ['pieza' => $pieza->id_pieza]) }}">Editar</a></td>
                         <td>
-{{--                         <td class="text-center"><a href="{{ route("piezas.delete", ['id' => $pieza->id_pieza]) }}">Desactivar</a></td> --}}
+{{--                         <td class="text-center"><a href="{{ route("piezas.delete", ['pieza' => $pieza->id_pieza]) }}">Desactivar</a></td> --}}
                         <td>
-                            <form action="{{ route("piezas.delete", ['id' => $pieza->id_pieza]) }}" method="post">
+                            <form action="{{ route("piezas.destroy", ['pieza' => $pieza->id_pieza]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">{{ $pieza->estatus != 2 ? "

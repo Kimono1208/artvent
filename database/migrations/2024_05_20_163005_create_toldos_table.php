@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('medidas');
             $table->string('color');
+            $table->string('cantidad')->nullable();
             $table->unsignedBigInteger('imagen_id')->nullable();
             $table->integer('estatus')->nullable();
             $table->timestamps();

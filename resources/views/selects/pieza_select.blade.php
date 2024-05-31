@@ -15,46 +15,47 @@
           </div>
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
-<h2>Select</h2>
-<a href="{{ route("piezas.index") }}" class="btn btn-secondary">Regresar</a>
-<table class="table align-items-center mb-0">
-    <thead>
-      <tr>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id_cliente</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Medidas</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Exclusiva</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Combinacion</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Descripcion</th>
-        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cantidad</th>
+              <h2>Crear Pieza</h2>
+              <a href="{{ route("piezas.index") }}" class="btn btn-secondary">Regresar</a>
 
-        <th class="text-secondary opacity-7"></th>
-      </tr>
-    </thead>
-<tbody>
-    {{-- @foreach ($pieza as $pieza) --}}
-    <tr>
-        <th class="text-center" scope="row">{{ $pieza->id_pieza }}</th>
-        {{-- <td></td> --}}
-        <td class="text-center">{{ $pieza->nombre }}</td>
-        <td class="text-center">{{ $pieza->medidas }}</td>
-        <td class="text-center">{{ $pieza->exclusiva }}</td>
-        <td class="text-center">{{ $pieza->combinacion }}</td>
-        <td class="text-center">{{ $pieza->descripcion }}</td>
-        <td class="text-center">{{ $pieza->cantidad }}</td>
-        <td class="text-center"><a href='admin/piezas/{{ $pieza->id_pieza }}/edit'>Editar</a></td>
-        {{-- route("piezas.edit", ['id' => $pieza->id_pieza]) --}}
-        <td>
-            <form action="'admin/piezas/{{$pieza->id_pieza }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit">Eliminar</button>
-            </form>
-        </td>
-    </tr>
-    {{-- @endforeach --}}
-</tbody>
-</table>
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
+
+              <form action="{{ route('piezas.store') }}" method="POST">
+                  @csrf
+                  <div class="form-group">
+                      <label for="nombre">Nombre</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
+                  </div>
+                  <div class="form-group">
+                      <label for="medidas">Medidas</label>
+                      <input type="text" class="form-control" id="medidas" name="medidas" value="{{ old('medidas') }}">
+                  </div>
+                  <div class="form-group">
+                      <label for="exclusiva">Exclusiva</label>
+                      <input type="text" class="form-control" id="exclusiva" name="exclusiva" value="{{ old('exclusiva') }}">
+                  </div>
+                  <div class="form-group">
+                      <label for="combinacion">Combinación</label>
+                      <input type="text" class="form-control" id="combinacion" name="combinacion" value="{{ old('combinacion') }}">
+                  </div>
+                  <div class="form-group">
+                      <label for="descripcion">Descripción</label>
+                      <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+                  </div>
+                  <div class="form-group">
+                      <label for="cantidad">Cantidad</label>
+                      <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{ old('cantidad') }}">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
             </div>
           </div>
         </div>

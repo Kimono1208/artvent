@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('promociones', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->float('cantidad');
+            $table->string('ruta_imagen');
             $table->timestamps();
+
         });
     }
 

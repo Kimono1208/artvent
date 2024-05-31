@@ -17,11 +17,15 @@ return new class extends Migration
             $table->string('rfc');
             $table->string('numero_telefono');
             $table->date('direccion')->nullable();
+            $table->unsignedBigInteger('imagen_id')->nullable();
             $table->string('email')->nullable();
             $table->integer('estatus')->nullable();
             $table->string('adeudo')->nullable();
             // $table->unsignedBigInteger('imagen_id')->nullable();
             $table->timestamps();
+
+            $table->foreign("imagen_id")->references('id')->on('imagenes');
+
         });
     }
 

@@ -49,13 +49,14 @@ Route::delete('/admin/piezas/{id}',[PiezasController::class,'borrar'])->name('pi
 Route::resource('/admin/piezas', PiezasController::class)/* ->middleware('auth') */;
 
 //-----------TOLDOS
-Route::post('/admin/toldos/insertar',[toldosController::class,'guardar'])->name('toldos.store');
-Route::get('/admin/toldos',[toldosController::class,'listado'])->name('toldos.index');
-Route::get('/admin/toldos/formulario',[toldosController::class,'formulario'])->name('toldos.create');
-Route::get('/admin/toldos/{id}/editar',[toldosController::class,'editar'])->name('toldos.edit');
-Route::get('/admin/toldos/{id}',[toldosController::class,'select'])->name('toldos.show');
-Route::put('/admin/toldos/{id}',[toldosController::class,'actualizar'])->name('toldos.update');
-Route::delete('/admin/toldos/{id}',[toldosController::class,'borrar'])->name('toldos.delete');
+// Route::post('/admin/toldos/insertar',[toldosController::class,'guardar'])->name('toldos.store');
+// Route::get('/admin/toldos',[toldosController::class,'listado'])->name('toldos.index');
+// Route::get('/admin/toldos/formulario',[toldosController::class,'formulario'])->name('toldos.create');
+// Route::get('/admin/toldos/{id}/editar',[toldosController::class,'editar'])->name('toldos.edit');
+// Route::get('/admin/toldos/{id}',[toldosController::class,'select'])->name('toldos.show');
+// Route::put('/admin/toldos/{id}',[toldosController::class,'actualizar'])->name('toldos.update');
+// Route::delete('/admin/toldos/{id}',[toldosController::class,'borrar'])->name('toldos.delete');
+Route::resource('/admin/toldos', ToldosController::class);
 
 //-----------EVENTOS
 Route::post('/admin/eventos/insertar',[eventosController::class,'guardar'])->name('eventos.store');
@@ -90,7 +91,7 @@ Route::get('/users/insert', function () {
     $user->email="juancha@gmail.com";
     $user->password=Hash::make('juancha@gmail.com');
     $user->image='storage/imagenes/usuarios/default.png';
-    $user->rol='worker';
+    $user->rol='admin';
     $user->estatus=1;
 
     $user->save();

@@ -16,7 +16,8 @@ class PiezasController extends Controller
     {
         // return Piezas::all();
         // $piezas=DB::table('piezas')->get();
-        $piezas=Piezas::all();
+        //$piezas=Piezas::all();
+        $piezas = Piezas::where('estatus', 1)->get();
         return view('/admin/tables_piezas', ['piezas'=> $piezas]);
     }
 
@@ -33,6 +34,17 @@ class PiezasController extends Controller
      */
     public function store(Request $request)
     {
+        // Definir reglas de validación
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'medidas' => 'required|string|max:255',
+            'exclusiva' => 'required|string|max:255',
+            'combinacion' => 'nullable|string|max:255',
+            'descripcion' => 'nullable|string|max:1000',
+            'cantidad' => 'nullable|integer|min:0',
+        ]);
+    
+        // Creamos una nueva instancia de Piezas y guardar los datos validados
         $pieza = new Piezas();
         $pieza->nombre = $request->nombre;
         $pieza->medidas = $request->medidas;
@@ -40,12 +52,10 @@ class PiezasController extends Controller
         $pieza->combinacion = $request->combinacion;
         $pieza->descripcion = $request->descripcion;
         $pieza->cantidad = $request->cantidad;
-        // $pieza->imagen = $request->get('imagen');
-        $pieza->estatus =1;
-
+        $pieza->estatus = 1;
+    
         $pieza->save();
-
-/*         if($request->hasFile('id_imagen_toldo')){
+ /*         if($request->hasFile('id_imagen_toldo')){
             //Guardar la imagen cuando la imagen sea una columna
             $extension=$request->id_imagen_toldo->extension();
             $nuevo='toldos'.$pieza->id.'.'.$extension;
@@ -71,8 +81,11 @@ class PiezasController extends Controller
 
             }
         } */
-        $piezas=Piezas::all();
-        return view('admin.tables_piezas')->with('piezas',$piezas);
+    
+        // Redirigimos con las piezas actualizadas
+        $piezas = Piezas::all();
+        return view('admin.tables_piezas')->with('piezas', $piezas);
+
     }
 
     /**
@@ -80,7 +93,8 @@ class PiezasController extends Controller
      */
     public function show($id)
     {
-        $pieza=Piezas::find($id);
+        $pieza = Piezas::where('estatus', 1)->where('id', $id)->first();
+        //$pieza=Piezas::find($id);
         // $piezas = DB::table('piezas')->where('id_pieza', $id)->first();
         return view('selects.pieza_select', ['pieza'=> $pieza]);
     }
@@ -91,7 +105,7 @@ class PiezasController extends Controller
     public function edit($id)
     {
         $piezas=Piezas::find($id);
-        return view('selects.pieza_select')->with('piezas',$piezas);
+        return view('/formulariosc/piezas')->with('pieza',$piezas);
     }
 
     /**

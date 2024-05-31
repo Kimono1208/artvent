@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
+            $table->string('categoria'); 
             $table->string('nombre');
             $table->string('cantidad');
             $table->timestamps();

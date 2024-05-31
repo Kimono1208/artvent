@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('medidas');
             $table->string('exclusiva');
             $table->string('combinacion')->nullable();
-            $table->string('desripcion')->nullable();
+            $table->string('descripcion')->nullable();
             $table->string('cantidad')->nullable();
             $table->string('estatus')->nullable();
             $table->timestamps();

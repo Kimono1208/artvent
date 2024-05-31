@@ -47,19 +47,21 @@
                         <td class="text-center">{{ $pieza->cantidad }}</td>
                         <td class="text-center">{{ $pieza->estatus != 2 ? "Activo" : "Desactivado" }}</td>
 {{--                         <td class="text-center">{{!! $estatus = 2 ? "Desactivado" !!}}</td> --}}
-                        <td class="text-center"><a href="{{ route("piezas.show", ['pieza' => $pieza->id_pieza]) }}">Ver mas</a></td>
+                        <td class="text-center"><a href="/admin/piezas/{{$pieza->id}}">Ver mas</a></td>
                         <td>
-                        <td class="text-center"><a href="{{ route("piezas.edit", ['pieza' => $pieza->id_pieza]) }}">Editar</a></td>
+                        <td class="text-center"><a href="/admin/piezas/{{$pieza->id}}/edit">Editar</a></td>
                         <td>
 {{--                         <td class="text-center"><a href="{{ route("piezas.delete", ['pieza' => $pieza->id_pieza]) }}">Desactivar</a></td> --}}
+                            @if (Auth::user()->isAdmin())
                         <td>
-                            <form action="{{ route("piezas.destroy", ['pieza' => $pieza->id_pieza]) }}" method="post">
+                            <form action="/admin/piezas/{{$pieza->id}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">{{ $pieza->estatus != 2 ? "
                                 Desactivar" : "Activar" }}</button>
                             </form>
                         </td>
+                          @endif
                     </tr>
                     @endforeach
 

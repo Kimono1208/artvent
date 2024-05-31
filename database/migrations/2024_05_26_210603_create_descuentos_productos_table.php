@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('descuentos_productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->float('cantidad');
+            $table->float('descuento');
             $table->integer('estatus')->nullable();
+            $table->unsignedBigInteger('cliente_id')->nullable();
             $table->timestamps();
+
+            $table->foreign("cliente_id")->references('id')->on('clientes');
+
         });
     }
 

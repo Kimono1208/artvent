@@ -16,45 +16,69 @@
         {!! isset($toldo) ? '<b>Indice de toldo: </b>'.$toldo->id_toldo : '' !!}
     </div>
     <form enctype="multipart/form-data" class="form_cont contenedor row g-4 needs-validation" novalidate method="POST" action="{{
-        isset($toldo) ? route("toldos.update", ['id' => $toldo->id_toldo]) : route("toldos.store") }}">
-            @csrf
-            @if(isset($toldo))
+        isset($toldo) ? route('toldos.update', ['id' => $toldo->id_toldo]) : route('toldos.store') }}">
+        @csrf
+        @if(isset($toldo))
             @method('PUT')
             <input type="hidden" name="id_toldo" value="{{ $toldo->id_toldo }}">
-            @endif
+        @endif
+    
         <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" value="{{ isset($toldo) ? $toldo->nombre : '' }}" required>
-            <div class="valid-feedback">
-                ¡Correcto!
-            </div>
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="{{ old('nombre', isset($toldo) ? $toldo->nombre : '') }}" required>
+            @error('nombre')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @else
+                <div class="valid-feedback">¡Correcto!</div>
+            @enderror
         </div>
+    
         <div class="col-md-4">
             <label for="medidas" class="form-label">Medidas</label>
-            <input type="text" class="form-control" name="medidas" id="medidas" value="{{ isset($toldo) ? $toldo->medidas : '' }}" required>
-            <div class="valid-feedback">
-                ¡Correcto!
-            </div>
+            <input type="text" class="form-control @error('medidas') is-invalid @enderror" name="medidas" id="medidas" value="{{ old('medidas', isset($toldo) ? $toldo->medidas : '') }}" required>
+            @error('medidas')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @else
+                <div class="valid-feedback">¡Correcto!</div>
+            @enderror
         </div>
+
         <div class="col-md-4">
-            <label for="exclusiva" class="form-label">Color</label>
-            <input type="text" class="form-control" name="color" id="color" value="{{ isset($toldo) ? $toldo->color : '' }}" required>
-            <div class="invalid-feedback">
-                Por favor, proporciona información.
-            </div>
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <input type="text" class="form-control @error('cantidad') is-invalid @enderror" name="cantidad" id="cantidad" value="{{ old('cantidad', isset($toldo) ? $toldo->cantidad : '') }}" required>
+            @error('cantidad')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @else
+                <div class="valid-feedback">¡Correcto!</div>
+            @enderror
         </div>
+    
+        <div class="col-md-4">
+            <label for="color" class="form-label">Color</label>
+            <input type="text" class="form-control @error('color') is-invalid @enderror" name="color" id="color" value="{{ old('color', isset($toldo) ? $toldo->color : '') }}" required>
+            @error('color')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @else
+                <div class="valid-feedback">¡Correcto!</div>
+            @enderror
+        </div>
+    
         <div class="col-md-6">
-            <label for="combinacion" class="form-label">id_imagen_toldo</label>
-            <input type="file" class="form-control" name="id_imagen_toldo" accept="imagen/*" id="id_imagen_toldo" value="{{ isset($toldo) ? $toldo->id_imagen_toldo : '' }}">
-            <div class="invalid-feedback">
-                Por favor, proporciona información válida.
-            </div>
+            <label for="id_imagen_toldo" class="form-label">Imagen</label>
+            <input type="file" class="form-control @error('id_imagen_toldo') is-invalid @enderror" name="id_imagen_toldo" accept="image/*" id="id_imagen_toldo" value="{{ old('id_imagen_toldo', isset($toldo) ? $toldo->id_imagen_toldo : '') }}" @if(!isset($toldo)) required @endif>
+            @error('id_imagen_toldo')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @else
+                <div class="valid-feedback">¡Correcto!</div>
+            @enderror
         </div>
+    
         <div class="col-12">
             <button class="btn btn-primary" type="submit">{{ isset($toldo) ? 'Actualizar' : 'Guardar' }} toldo</button>
-            {!! isset($toldo) ? '<a href="' . route("toldos.index") . '" class="btn btn-secondary">Cancelar</a>' : '<a href="' . route("toldos.index") . '" class="btn btn-secondary">Regresar</a>' !!}
+            {!! isset($toldo) ? '<a href="' . route('toldos.index') . '" class="btn btn-secondary">Cancelar</a>' : '<a href="' . route('toldos.index') . '" class="btn btn-secondary">Regresar</a>' !!}
         </div>
     </form>
+    
 </section>
     <script src="{{ asset('../js/form.js') }} "></script>
 

@@ -46,7 +46,7 @@
                             <td class="text-center">{{ $cliente->adeudo }}</td>
                             <td class="text-center">
                                 @if ($cliente->imagen)
-                                    <img src="{{ asset('storage/' . $cliente->imagen->ruta) }}" alt="Imagen Cliente" class="img-fluid" style="max-width: 100px;">
+                                    <img src="{{ asset('storage/'.$cliente->imagen->ruta) }}" alt="Imagen Cliente" class="img-fluid" style="max-width: 100px;">
                                 @else
                                     <img src="{{ asset('storage/imagenes_clientes/Default.png') }}" alt="Imagen por defecto" class="img-fluid" style="max-width: 100px;">
                                 @endif

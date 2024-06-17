@@ -4,7 +4,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clientes; 
+use App\Models\Clientes;
 use App\Models\User;
 use App\Models\Imagenes;
 use Illuminate\Http\Request;
@@ -25,6 +25,7 @@ class ClientesController extends Controller
 
     public function store(Request $request)
 {
+    // dd($request->hasFile('imagen'));
     // Validación de los datos del cliente
     $request->validate([
         'nombre' => 'required',
@@ -58,18 +59,22 @@ class ClientesController extends Controller
             $cliente->estatus = $request->estatus;
             $cliente->adeudo = $request->adeudo;
             $cliente->user_id = $user->id;
-//crea el usuario y el registro del cliente a la par y le asigna el rol de clinte 
+//crea el usuario y el registro del cliente a la par y le asigna el rol de clinte
+
+            // dd($request->hasFile('imagen'));
 
     // Verificar si se proporcionó una imagen
-    if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
+    if ($request->hasFile('imagen') /* && $request->file('imagen')->isValid() */) {
         // Subir y guardar la imagen
-        $imagenPath = $request->file('imagen')->store('imagenes_clientes'); // Guarda la imagen en storage/app/public/imagenes_clientes
+        $imagenPath = $request->file('imagen')/* ->store('imagenes_clientes') */; // Guarda la imagen en storage/app/public/imagenes_clientes
+        $nombreImagen = time() . '.' . $imagenPath->getClientOriginalExtension();
+        $ruta = $imagenPath->storeAs('imagenes_clientes', $nombreImagen, 'public');
 
         // Crear el registro de imagen
         $imagen = new Imagenes();
         $imagen->nombre = $request->file('imagen')->getClientOriginalName();
         $imagen->tipo = $request->file('imagen')->getClientOriginalExtension();
-        $imagen->ruta = $imagenPath;
+        $imagen->ruta = $ruta;
         $imagen->save();
 
         // Asignar la imagen al cliente

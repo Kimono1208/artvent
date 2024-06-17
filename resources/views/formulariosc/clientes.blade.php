@@ -27,7 +27,7 @@
         @endif
 
         <form class="form_cont contenedor row g-4 needs-validation" novalidate method="POST"
-            action="{{ isset($cliente) ? route('clientes.update', ['cliente' => $cliente->id]) : route('clientes.store') }}">
+            action="{{ isset($cliente) ? route('clientes.update', ['cliente' => $cliente->id]) : route('clientes.store') }}" enctype="multipart/form-data">
             @csrf
             @if (isset($cliente))
                 @method('PUT')
@@ -70,11 +70,11 @@
             </div>
 
             <div class="col-md-4">
-                <label for="imagen_cliente" class="form-label">Imagen Cliente</label>
-                <input type="file" class="form-control" id="imagen_cliente" name="imagen_cliente" accept="image/*"
-                    {{ isset($cliente) ? '' : 'required' }}>
+                <label for="imagen" class="form-label">Imagen Cliente</label>
+                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*"
+                    {{-- {{ isset($cliente) ? '' : 'required' }} --}}>
                 @if (isset($cliente) && $cliente->imagen_cliente)
-                    <img src="{{ asset('ruta/a/la/imagen/' . $cliente->imagen_cliente) }}" alt="Imagen Cliente"
+                    <img src="{{ asset('storage/' . $cliente->imagen_cliente) }}" alt="Imagen Cliente"
                         style="max-width: 100px; max-height: 100px;">
                 @endif
                 <div class="invalid-feedback">

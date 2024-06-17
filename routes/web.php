@@ -5,6 +5,7 @@ use App\Http\Controllers\EventosController;
 use App\Http\Controllers\PiezasController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ToldosController;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,9 +62,9 @@ Route::get('/users/insert', function () {
     $user->name="juancha";
     $user->email="juancha@gmail.com";
     $user->password=Hash::make('juancha@gmail.com');
-    $user->image='storage/imagenes/usuarios/default.png';
-    $user->rol='admin';
-    $user->estatus=1;
+    //$user->image='storage/imagenes/usuarios/default.png';
+    $user->role='dueno';
+    //$user->estatus=1;
 
     $user->save();
 

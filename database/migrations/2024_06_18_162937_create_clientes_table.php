@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nombre');
             $table->string('rfc');
-            $table->string('numero_telefono');
-            $table->date('direccion')->nullable();
+            $table->string('phone');
+            $table->string('direccion')->nullable();
             $table->unsignedBigInteger('imagen_id')->nullable();
             $table->string('email')->nullable();
             $table->string('estatus')->nullable();

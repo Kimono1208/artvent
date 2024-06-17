@@ -24,13 +24,14 @@
                 </ul>
             </div>
         @endif
+
         <form class="row g-4 needs-validation" novalidate method="POST"
         action="{{ isset($toldo) ? route('toldos.update', $toldo->id) : route('toldos.store') }}">
             @csrf
             @if (isset($toldo))
                 @method('PUT')
             @endif
-
+{{-- //utilizamos el mismo formulario para crear editar etc --}}
             <div class="col-md-4">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre"

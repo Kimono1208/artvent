@@ -8,14 +8,15 @@ use App\Models\Clientes;
 use App\Models\User;
 use App\Models\Imagenes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClientesController extends Controller
 {
-    public function index()
-    {
-        $clientes = Clientes::all();
-        return view('formulariosc.clientes', compact('clientes'));
-    }
+        public function index()
+        {
+            $clientes = Clientes::all();
+            return view('admin.tables_clientes', compact('clientes')); // Asegúrate de especificar correctamente la ruta a la vista
+        }
 
     public function create()
     {
@@ -28,7 +29,7 @@ class ClientesController extends Controller
     $request->validate([
         'nombre' => 'required',
         'rfc' => 'required',
-        'telefono' => 'required',
+        'phone' => 'nullable',
         'direccion' => 'nullable',
         'email' => 'required|email|unique:clientes,email',
         'estatus' => 'nullable',
@@ -36,22 +37,28 @@ class ClientesController extends Controller
         'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Ahora la imagen es opcional
     ]);
 
-    // Crear el cliente
-    $cliente = new Clientes();
-    $cliente->nombre = $request->nombre;
-    $cliente->rfc = $request->rfc;
-    $cliente->telefono = $request->telefono;
-    $cliente->direccion = $request->direccion;
-    $cliente->email = $request->email;
-    $cliente->estatus = $request->estatus;
-    $cliente->adeudo = $request->adeudo;
+    DB::beginTransaction();
 
-    $user = new User();
-    $user->email = $request->email;
-    $user->nombre = $request->nombre;
-    $user->telefono = $request->telefono;
-    $cliente->user_id = $user->id;
+        try {
+            // Crear el usuario
+            $user = new User();
+            $user->email = $request->email;
+            $user->name = $request->nombre; // Asumiendo que 'nombre' es el nombre del usuario
+            $user->phone = $request->phone; // Asumiendo que 'phone' es el teléfono del usuario
+            $user->password = bcrypt($request->email); // Contraseña temporal, puedes cambiar esto según tus necesidades
+            $user->save();
 
+            // Crear el cliente
+            $cliente = new Clientes();
+            $cliente->nombre = $request->nombre;
+            $cliente->rfc = $request->rfc;
+            $cliente->phone = $request->phone;
+            $cliente->direccion = $request->direccion;
+            $cliente->email = $request->email;
+            $cliente->estatus = $request->estatus;
+            $cliente->adeudo = $request->adeudo;
+            $cliente->user_id = $user->id;
+//crea el usuario y el registro del cliente a la par y le asigna el rol de clinte 
 
     // Verificar si se proporcionó una imagen
     if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
@@ -80,13 +87,22 @@ class ClientesController extends Controller
         }
     }
 
-    // Guardar el cliente
-    $cliente->save();
+      // Guardar el cliente
+      $cliente->save();
 
-    // Redirigir con mensaje de éxito
-    return redirect()->route('clientes.index')->with('success', 'Cliente registrado satisfactoriamente.');
+      // Commit de la transacción si todo fue exitoso
+      DB::commit();
+
+      // Redirigir con mensaje de éxito
+      return redirect()->route('clientes.index')->with('success', 'Cliente registrado satisfactoriamente.');
+  } catch (\Exception $e) {
+      // Rollback de la transacción en caso de error
+      DB::rollback();
+
+      // Manejar el error según tus necesidades (por ejemplo, registrar el error o redirigir con un mensaje de error)
+      return redirect()->back()->with('error', 'Error al registrar el cliente. Inténtalo de nuevo.');
+  }
 }
-
 
     public function show(Clientes $cliente)
     {
@@ -101,16 +117,15 @@ class ClientesController extends Controller
     public function update(Request $request, Clientes $cliente)
     {
         $request->validate([
-            'nombre' => 'required|string|max:255',
-            'rfc' => 'required|string|max:255',
-            'numero_telefono' => 'required|string|max:255',
-            'direccion' => 'nullable|string',
-            'imagen_id' => 'nullable|exists:imagenes,id',
-            'email' => 'nullable|email',
-            'estatus' => 'nullable|integer',
-            'adeudo' => 'nullable|string'
+            'nombre' => 'required',
+            'rfc' => 'required',
+            'phone' => 'nullable',
+            'direccion' => 'nullable',
+            'email' => 'required|email',
+            'estatus' => 'nullable',
+            'adeudo' => 'nullable',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Ahora la imagen es opcional
         ]);
-
         $cliente->update($request->all());
 
         return redirect()->route('clientes.index')->with('success', 'Cliente actualizado exitosamente.');

@@ -39,7 +39,7 @@
                             <td class="text-center">{{ $cliente->id }}</td>
                             <td class="text-center">{{ $cliente->nombre }}</td>
                             <td class="text-center">{{ $cliente->rfc }}</td>
-                            <td class="text-center">{{ $cliente->numero_telefono }}</td>
+                            <td class="text-center">{{ $cliente->phone }}</td>
                             <td class="text-center">{{ $cliente->direccion }}</td>
                             <td class="text-center">{{ $cliente->email }}</td>
                             <td class="text-center">{{ $cliente->estatus }}</td>

@@ -20,7 +20,7 @@ class clientesController extends Controller
         DB::table('clientes')->insert([
             'nombre' => $req->nombre,
             'rfc' => $req->rfc,
-            'numero_telefono' => $req->numero_telefono,
+            'phone' => $req->phone,
             'direccion' => $req->direccion,
             // 'id_imagen_cliente' => $req->id_imagen_cliente,
             'email' => $req->estatus,
@@ -35,7 +35,7 @@ class clientesController extends Controller
         DB::table('clientes')->where('id_cliente', $req->id_cliente)->update([
             'nombre' => $req->nombre,
             'rfc' => $req->rfc,
-            'numero_telefono' => $req->numero_telefono,
+            'phone' => $req->phone,
             'direccion' => $req->direccion,
             'id_imagen_cliente' => $req->id_imagen_cliente,
             'email' => $req->estatus,

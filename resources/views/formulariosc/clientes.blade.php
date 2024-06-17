@@ -17,17 +17,17 @@
             @endif
         </div>
         @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <form class="form_cont contenedor row g-4 needs-validation" novalidate method="POST"
-            action="{{ isset($cliente) ? route('clientes.update', ['cliente' => $cliente->id_cliente]) : route('clientes.store') }}">
+            action="{{ isset($cliente) ? route('clientes.update', ['cliente' => $cliente->id]) : route('clientes.store') }}">
             @csrf
             @if (isset($cliente))
                 @method('PUT')
@@ -52,9 +52,9 @@
             </div>
 
             <div class="col-md-4">
-                <label for="numero_telefono" class="form-label">Número de Teléfono</label>
-                <input type="text" class="form-control" name="numero_telefono" id="numero_telefono"
-                    value="{{ old('numero_telefono', isset($cliente) ? $cliente->numero_telefono : '') }}" required>
+                <label for="phone" class="form-label">Número de Teléfono</label>
+                <input type="text" class="form-control" name="phone" id="phone"
+                    value="{{ old('phone', isset($cliente) ? $cliente->phone : '') }}" required>
                 <div class="invalid-feedback">
                     Por favor, proporciona un número de teléfono válido.
                 </div>

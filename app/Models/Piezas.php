@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Piezas extends Model
 {
-    protected $table = 'piezas';
-    public $timestamps = false;
-    //protected $primaryKey = 'id_pieza';
     use HasFactory;
+
+    protected $fillable = [
+        'nombre', 'cantidad', 'ancho', 'largo', 'unicas', 'observaciones', 'status'
+    ];
 }

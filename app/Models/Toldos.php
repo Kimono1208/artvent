@@ -13,10 +13,18 @@ class Toldos extends Model
 
     protected $fillable = [
         'nombre',
-        'medidas',
+        'ancho',
+        'largo',
+        'piezas',
+        'lona_m2',
+        'luces',
+        'conexiones',
+        'mesas',
+        'sillas',
+        'tarimas',
         'color',
-        'cantidad',
-        'imagen_id',
-        'estatus'
+        'cortinas',
+        'decoracion_extra',
+        'status',
     ];
 }

@@ -10,43 +10,44 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'phone',
+        'status',
+        'role'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
-
-    public function isAdmin() {
-        return $this->rol == 'admin'?true:false;
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
-    public function isWorker() {
-        return $this->rol == 'worker'?true:false;
+
+    public function cotizaciones()
+    {
+        return $this->hasMany(Cotizacion::class, 'cliente_id');
+    }
+
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class, 'cliente_id');
+    }
+
+    public function trabajos()
+    {
+        return $this->hasMany(Evento::class, 'trabajador_id');
+    }
+
+    public function trabajador()
+    {
+        return $this->hasOne(Trabajador::class);
     }
 }

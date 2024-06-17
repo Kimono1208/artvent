@@ -102,22 +102,40 @@
             </li>
           </ul>
         </li>
+        <div class="mt-3 space-y-1">
+          <x-responsive-nav-link :href="route('profile.edit')">
+              {{ __('Profile') }}
+          </x-responsive-nav-link>
+
+          <!-- Authentication -->
+          <form method="POST" action="{{ route('logout') }}">
+              @csrf
+
+              <x-responsive-nav-link :href="route('logout')"
+                      onclick="event.preventDefault();
+                                  this.closest('form').submit();">
+                  {{ __('Log Out') }}
+              </x-responsive-nav-link>
+          </form>
+      </div>
         <li class="nav-item d-flex align-items-center">
-            @auth
-                {{ Auth::user()->name }}
-            @endauth
-            <div>
+            <div class="mx-4">
+              @auth
+                  {{ Auth::user()->name }}
+              @endauth
+            </div>
+            {{-- <div class="mx-2 ">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-body p-0">
                     <i class="fa fa-sign-out"></i>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-            </div>
-        <a href="{{ route("logout") }}" class="nav-link text-body font-weight-bold px-0">
+            </div> --}}
+        {{-- <a href="{{ route("logout") }}" class="nav-link text-body font-weight-bold px-0">
             <i class="fa fa-user me-sm-1"></i>
             <span class="d-sm-inline d-none">Sign Out</span>
-        </a>
+        </a> --}}
         </li>
       </ul>
     </div>

@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\EventosController;
 use App\Http\Controllers\PiezasController;
-use App\Http\Controllers\toldosController;
-use App\Http\Controllers\eventosController;
-use App\Http\Controllers\clientesController;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ToldosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,50 +38,22 @@ Route::view('toldos','formulariosc/toldos');
 
 //controlador
 //-----------PIEZAS
-/* Route::post('/admin/piezas/insertar',[PiezasController::class,'guardar'])->name('piezas.store');
-Route::get('/admin/piezas',[PiezasController::class,'listado'])->name('piezas.index');
-Route::get('/admin/piezas/formulario',[PiezasController::class,'formulario'])->name('piezas.create');
-Route::get('/admin/piezas/{id}/editar',[PiezasController::class,'editar'])->name('piezas.edit');
-Route::get('/admin/piezas/{id}',[PiezasController::class,'select'])->name('piezas.show');
-Route::put('/admin/piezas/{id}',[PiezasController::class,'actualizar'])->name('piezas.update');
-Route::delete('/admin/piezas/{id}',[PiezasController::class,'borrar'])->name('piezas.delete'); */
 Route::resource('/admin/piezas', PiezasController::class)/* ->middleware('auth') */;
-
 //-----------TOLDOS
-// Route::post('/admin/toldos/insertar',[toldosController::class,'guardar'])->name('toldos.store');
-// Route::get('/admin/toldos',[toldosController::class,'listado'])->name('toldos.index');
-// Route::get('/admin/toldos/formulario',[toldosController::class,'formulario'])->name('toldos.create');
-// Route::get('/admin/toldos/{id}/editar',[toldosController::class,'editar'])->name('toldos.edit');
-// Route::get('/admin/toldos/{id}',[toldosController::class,'select'])->name('toldos.show');
-// Route::put('/admin/toldos/{id}',[toldosController::class,'actualizar'])->name('toldos.update');
-// Route::delete('/admin/toldos/{id}',[toldosController::class,'borrar'])->name('toldos.delete');
 Route::resource('/admin/toldos', ToldosController::class);
-
 //-----------EVENTOS
-Route::post('/admin/eventos/insertar',[eventosController::class,'guardar'])->name('eventos.store');
-Route::get('/admin/eventos',[eventosController::class,'listado'])->name('eventos.index');
-Route::get('/admin/eventos/formulario',[eventosController::class,'formulario'])->name('eventos.create');
-Route::get('/admin/eventos/{id}/editar',[eventosController::class,'editar'])->name('eventos.edit');
-Route::get('/admin/eventos/{id}',[eventosController::class,'select'])->name('eventos.show');
-Route::put('/admin/eventos/{id}',[eventosController::class,'actualizar'])->name('eventos.update');
-Route::delete('/admin/eventos/{id}',[eventosController::class,'borrar'])->name('eventos.delete');
-
+Route::resource('/admin/eventos', EventosController::class);
 //-----------CLIENTES
-Route::post('/admin/clientes/insertar',[clientesController::class,'guardar'])->name('clientes.store');
-Route::get('/admin/clientes',[clientesController::class,'listado'])->name('clientes.index');
-Route::get('/admin/clientes/formulario',[clientesController::class,'formulario'])->name('clientes.create');
-Route::get('/admin/clientes/{id}/editar',[clientesController::class,'editar'])->name('clientes.edit');
-Route::get('/admin/clientes/{id}',[clientesController::class,'select'])->name('clientes.show');
-Route::put('/admin/clientes/{id}',[clientesController::class,'actualizar'])->name('clientes.update');
-Route::delete('/admin/clientes/{id}',[clientesController::class,'borrar'])->name('clientes.delete');
+Route::resource('/admin/clientes', ClientesController::class);
+
 
 //LOGIN AND AUTHENTICATE
-Route::get('/login',[LoginController::class,'show'])->name('login');
+/* Route::get('/login',[LoginController::class,'show'])->name('login');
 Route::post('/authentication',[LoginController::class,'authenticate'])->name('authenticate');
 
 
 Route::get('/logout',[LoginController::class,'logOut'])->name('logout')->middleware('auth');
-Route::get('/dashboard',[LoginController::class,'dashboard'])->name("dashboard")->middleware('auth');
+Route::get('/dashboard',[LoginController::class,'dashboard'])->name("dashboard")->middleware('auth'); */
 
 
 Route::get('/users/insert', function () {
@@ -98,3 +69,15 @@ Route::get('/users/insert', function () {
 
     return 'Usuario autenticado';
 });
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

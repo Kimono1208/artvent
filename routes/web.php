@@ -47,6 +47,8 @@ Route::resource('/admin/eventos', EventosController::class);
 //-----------CLIENTES
 Route::resource('/admin/clientes', ClientesController::class);
 
+Route::resource('/admin/cotizaciones', CotizacionesController::class);
+
 
 //LOGIN AND AUTHENTICATE
 /* Route::get('/login',[LoginController::class,'show'])->name('login');

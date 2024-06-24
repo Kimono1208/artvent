@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('estatus')->nullable();
             $table->unsignedBigInteger('cliente_id')->nullable();
             $table->timestamps();
-
             $table->foreign("cliente_id")->references('id')->on('clientes');
 
         });

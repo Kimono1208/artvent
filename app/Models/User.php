@@ -28,22 +28,17 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comments::class);
     }
 
     public function cotizaciones()
     {
-        return $this->hasMany(Cotizacion::class, 'cliente_id');
+        return $this->hasMany(Cotizaciones::class, 'cliente_id');
     }
 
     public function eventos()
     {
-        return $this->hasMany(Evento::class, 'cliente_id');
-    }
-
-    public function trabajos()
-    {
-        return $this->hasMany(Evento::class, 'trabajador_id');
+        return $this->hasMany(Eventos::class, 'cliente_id');
     }
 
     public function trabajador()

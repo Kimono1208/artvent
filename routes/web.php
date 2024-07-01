@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\CotizacionesController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\PiezasController;
 use App\Http\Controllers\ProfileController;
@@ -48,6 +49,12 @@ Route::resource('/admin/eventos', EventosController::class);
 Route::resource('/admin/clientes', ClientesController::class);
 
 Route::resource('/admin/cotizaciones', CotizacionesController::class);
+
+
+// use App\Http\Controllers\CommentsController;
+
+// Route::get('/admin/cotizaciones/{cotizacion}', [CotizacionesController::class, 'show'])->name('cotizaciones.show');
+// Route::post('/admin/cotizaciones/{cotizacion}/comments', [CommentsController::class, 'store'])->name('comments.store');
 
 
 //LOGIN AND AUTHENTICATE

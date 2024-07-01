@@ -60,7 +60,14 @@ Route::middleware('auth')->group(function () {
 use App\Http\Controllers\TrabajadorController;
 use App\Http\Controllers\PiezasController;
 use App\Http\Controllers\ToldosController;
+use App\Http\Controllers\GaleriaToldosController;
+use App\Http\Controllers\CotizacionesController;
+use App\Http\Controllers\CommentsController;
 
+Route::get('/admin/cotizaciones/{cotizacion}', [CotizacionesController::class, 'show'])->name('cotizaciones.show');
+Route::post('/admin/cotizaciones/{cotizacion}/comments', [CommentsController::class, 'store'])->name('comments.store');
+
+Route::resource('galeria_toldos', GaleriaToldosController::class);
 Route::resource('toldos', ToldosController::class);
 
 Route::resource('piezas', PiezasController::class);

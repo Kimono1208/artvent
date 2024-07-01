@@ -51,10 +51,10 @@ Route::resource('/admin/clientes', ClientesController::class);
 Route::resource('/admin/cotizaciones', CotizacionesController::class);
 
 
-// use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CommentsController;
 
-// Route::get('/admin/cotizaciones/{cotizacion}', [CotizacionesController::class, 'show'])->name('cotizaciones.show');
-// Route::post('/admin/cotizaciones/{cotizacion}/comments', [CommentsController::class, 'store'])->name('comments.store');
+Route::get('/admin/cotizaciones/{cotizacion}', [CotizacionesController::class, 'show'])->name('cotizaciones.show');
+Route::post('/admin/cotizaciones/{cotizacion}/comments', [CommentsController::class, 'store'])->name('comments.store');
 
 
 //LOGIN AND AUTHENTICATE

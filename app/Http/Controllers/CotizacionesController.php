@@ -37,11 +37,13 @@ class CotizacionesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cotizaciones $cotizacion)
-    {
+    public function show( $id)
+    { 
         // Cargar los comentarios y los usuarios relacionados
-        $cotizacion->load('comments.user');
+        $cotizacion = Cotizaciones::findOrFail($id);
 
+        $cotizacion->load('comments.user');
+        
         return view('selects.cotizacion_select', compact('cotizacion'));
     }
 

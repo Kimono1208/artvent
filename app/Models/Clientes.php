@@ -21,7 +21,8 @@ class Clientes extends Model
         'imagen_id',
         'email',
         'estatus',
-        'adeudo'
+        'adeudo',
+        'fds'
     ];
 
     // Relación con la tabla 'imagenes'

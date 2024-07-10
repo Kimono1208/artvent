@@ -9,3 +9,6 @@ class Eventos extends Model
 {
     use HasFactory;
 }
+
+
+

@@ -89,8 +89,9 @@
 
             <div class="col-md-4">
                 <label for="luces" class="form-label">Luces</label>
+                <input type="hidden" name="luces" value="0">
                 <input type="checkbox" class="form-check-input @error('luces') is-invalid @enderror" name="luces"
-                    id="luces" {{ old('luces', isset($toldo) ? $toldo->luces : '') ? 'checked' : '' }}>
+                    id="luces" value="1" {{ old('luces', isset($toldo) ? $toldo->luces : 0) ? 'checked' : '' }}>
                 @error('luces')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @else
@@ -156,7 +157,7 @@
             <div class="col-md-4">
                 <label for="cortinas" class="form-label">Cortinas</label>
                 <input type="checkbox" class="form-check-input @error('cortinas') is-invalid @enderror" name="cortinas"
-                    id="cortinas" {{ old('cortinas', isset($toldo) ? $toldo->cortinas : '') ? 'checked' : '' }}>
+                    id="cortinas" value="1" {{ old('cortinas', isset($toldo) ? $toldo->cortinas : '') ? 'checked' : '' }}>
                 @error('cortinas')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @else
@@ -167,7 +168,7 @@
             <div class="col-md-4">
                 <label for="decoracion_extra" class="form-label">Decoración Extra</label>
                 <textarea class="form-control @error('decoracion_extra') is-invalid @enderror" name="decoracion_extra"
-                    id="decoracion_extra">{{ old('decoracion_extra', isset($toldo) ? $toldo->decoracion_extra : '') }}</textarea>
+                    id="decoracion_extra" value="1"> {{ old('decoracion_extra', isset($toldo) ? $toldo->decoracion_extra : '') }}</textarea>
                 @error('decoracion_extra')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @else

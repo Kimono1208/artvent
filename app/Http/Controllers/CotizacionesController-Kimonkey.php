@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comments;
 use App\Models\Cotizaciones;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Barryvdh\DomPDF\Facade\Pdf;
-use App\Mail\InvoiceCotizacionMailable;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoiceCotizacionMailable;
 
 class CotizacionesController extends Controller
 {
@@ -47,15 +44,19 @@ class CotizacionesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $cotizacion = Cotizaciones::findOrFail($id);
+
+        // $cotizacion->load('comments.user');
+        
+        return view('admin.invoice.generate-invoice', compact('cotizacion'));
     }
 
     /**
@@ -66,7 +67,10 @@ class CotizacionesController extends Controller
         // Cargar los comentarios y los usuarios relacionados
         $cotizacion = Cotizaciones::findOrFail($id);
 
-        $cotizacion->load('comments.user');
+/*         if (comments.user) {
+            # code...
+        } */
+        // $cotizacion->load('comments.user');
         
         return view('selects.cotizacion_select', compact('cotizacion'));
     }
@@ -117,32 +121,25 @@ class CotizacionesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cotizaciones $cotizaciones)
+    public function destroy($id)
     {
-        //
+        $cotizacion = Cotizaciones::findOrFail($id);
+
+        // $cotizacion->load('comments.user');
+
+        $userEmail = auth()->user()->email;
+
+        Mail::to($userEmail)->send(new InvoiceCotizacionMailable($cotizacion));
+        
+        return view('admin.invoice.generate-invoice', compact('cotizacion'));
     }
 
-    public function viewInvoice(int $id){
+    public function payment($id)
+    {
         $cotizacion = Cotizaciones::findOrFail($id);
-        return view('admin/invoice/generate-invoice', compact('cotizacion'));
-    }
 
-    public function generateInvoice(int $id){
-        $cotizacion = Cotizaciones::findOrFail($id);
-        $data = ['cotizacion' => $cotizacion];
-
-        $todayDate = Carbon::now()->format('d-m-Y');
-        $pdf = Pdf::loadView('admin/invoice/generate-invoice', $data);
-        return $pdf->download('invoice-'.$cotizacion->id.'-'.$todayDate.'.pdf');
-    }
-
-    public function mailInvoice(int $id){
-        $cotizacion = Cotizaciones::findOrFail($id);
-        try{
-            Mail::to("$cotizacion->email")->send(new InvoicecotizacionMailable($cotizacion));
-            return redirect()->route('cotizaciones.show', $cotizacion->id)->with('message','Cotizacion ha sido enviada '.$cotizacion->email);
-        }catch(\Exception $e){
-            return redirect()->route('cotizaciones.show', $cotizacion->id)->with('message','Parece que ocurrio un error!');
-        }
+        // $cotizacion->load('comments.user');
+        
+        return view('admin.invoice.generate-invoice', compact('cotizacion'));
     }
 }

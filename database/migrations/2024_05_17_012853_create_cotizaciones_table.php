@@ -19,6 +19,7 @@ class CreateCotizacionesTable extends Migration
             $table->integer('mesas')->default(0);
             $table->integer('sillas')->default(0);
             $table->integer('tarimas')->default(0);
+            $table->integer('pago')->default(0);
             $table->string('color')->nullable();
             $table->boolean('cortinas')->default(false);
             $table->text('decoracion_extra')->nullable();
@@ -28,6 +29,8 @@ class CreateCotizacionesTable extends Migration
             $table->text('notas_extras')->nullable();
             $table->enum('status', ['pendiente', 'aprobada', 'rechazada'])->default('pendiente');
             $table->timestamps();
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
         });
     }
 

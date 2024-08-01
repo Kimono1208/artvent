@@ -18,6 +18,16 @@
                 <h6 class="text-white text-capitalize ps-3">cotizaciones</h6>
             </div>
         </div>
+        <form method="GET" action="{{ route('cotizaciones.index') }}">
+            <label for="status">Estado:</label>
+            <select name="status" id="status">
+                <option value="all" {{ request('status') == 'all' ? 'selected' : '' }}>Todos</option>
+                <option value="aprobada" {{ request('status') == 'aprobada' ? 'selected' : '' }}>Aprobada</option>
+                <option value="rechazada" {{ request('status') == 'rechazada' ? 'selected' : '' }}>Rechazada</option>
+                <option value="pendiente" {{ request('status') == 'pendiente' ? 'selected' : '' }}>Pendiente</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">

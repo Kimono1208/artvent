@@ -50,6 +50,10 @@ Route::resource('/admin/clientes', ClientesController::class);
 
 Route::resource('/admin/cotizaciones', CotizacionesController::class);
 
+Route::get('admin/invoice/{id}', [CotizacionesController::class, 'viewInvoice'])->name('invoice.view');
+Route::get('admin/invoice/generate/{id}', [CotizacionesController::class, 'generateInvoice'])->name('invoice.generate');
+Route::post('admin/invoice/mail/{id}', [CotizacionesController::class, 'mailInvoice'])->name('invoice.mail');
+
 
 use App\Http\Controllers\CommentsController;
 

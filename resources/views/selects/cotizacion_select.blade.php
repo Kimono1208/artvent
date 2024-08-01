@@ -16,7 +16,14 @@
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive p-0">
                             <h2>Select</h2>
+                            <a class="btn btn-secondary" href="{{ route('invoice.view', $cotizacion->id) }}">Ver Factura</a>
+                            <a class="btn btn-secondary" href="{{ route('invoice.generate', $cotizacion->id) }}">Generar Factura</a>
+                            <form class="btn btn-secondary" action="{{ route('invoice.mail', $cotizacion->id) }}" method="POST">
+                                @csrf
+                                <button type="submit">Enviar Factura por Email</button>
+                            </form>
                             <a href="{{ route('cotizaciones.index') }}" class="btn btn-secondary">Regresar</a>
+
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
@@ -118,17 +125,18 @@
                         </form>
                         <a href="/admin/cotizaciones/{{ $cotizacion->id }}/edit" class="btn btn-secondary">Cancelar</a>
                         <hr>
-                        
-                        @foreach($cotizacion->comments as $comment)
+
+                        @foreach ($cotizacion->comments as $comment)
                             <div class="m-4 p-4 bg-secondary text-white">
                                 <div class="bg-danger p-2 rounded m-4 text-center">Mensaje: {{ $comment->id }}</div>
-                                <h6>User: {{ $comment->user->name }}</h6>
+                                {{-- <h6>User: {{ $comment->user->name }}</h6> --}}
+                                <h6>User: Artvent</h6>
                                 <p>Comentario: {{ $comment->comment }}</p>
                             </div>
-                        @endforeach                        
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

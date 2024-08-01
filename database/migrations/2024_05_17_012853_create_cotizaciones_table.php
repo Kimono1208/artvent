@@ -23,8 +23,8 @@ class CreateCotizacionesTable extends Migration
             $table->string('color')->nullable();
             $table->boolean('cortinas')->default(false);
             $table->text('decoracion_extra')->nullable();
-            $table->date('fecha_inicio');
-            $table->date('fecha_final');
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_final')->nullable();
             $table->text('lugar');
             $table->text('notas_extras')->nullable();
             $table->enum('status', ['pendiente', 'aprobada', 'rechazada'])->default('pendiente');

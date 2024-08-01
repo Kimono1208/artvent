@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+<<<<<<< HEAD
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+=======
+            $table->string('password')->nullable();
+            $table->string('google_id')->nullable();
+>>>>>>> 802153fb09d5ff116efb818680d99192f31950ec
             $table->string('phone')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->enum('role', ['cliente', 'trabajador', 'dueno']);
@@ -49,4 +54,8 @@ return new class extends Migration
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> 802153fb09d5ff116efb818680d99192f31950ec

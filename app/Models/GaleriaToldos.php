@@ -11,12 +11,12 @@ class GaleriaToldos extends Model
 
     protected $table = 'galeria_toldos';
 
-    protected $fillable = [
-        'producto_id', 'nombre_toldo', 'imagen', 'descripcion', 'precio', 'categoria'
-    ];
+protected $fillable = [
+    'producto_id', 'nombre_toldo', 'imagen', 'descripcion', 'precio', 'categoria'
+];
 
-    public function producto()
-    {
-        return $this->belongsTo(Producto::class);
-    }
+public function producto()
+{
+    return $this->belongsTo(Producto::class);
+}
 }

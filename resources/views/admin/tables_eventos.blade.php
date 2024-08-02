@@ -27,11 +27,10 @@
                     <th class="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
-                <tbody>
+{{--                 <tbody>
                     @foreach ($eventos as $evento)
                     <tr>
                         <th class="text-center" scope="row">{{ $evento->id_evento }}</th>
-                        {{-- <td></td> --}}
                         <td class="text-center">{{ $evento->nombre }}</td>
                         <td class="text-center">{{ $evento->lugar }}</td>
                         <td class="text-center">{{ $evento->toldo }}</td>
@@ -48,14 +47,14 @@
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
               </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
+{{--     <div class="row">
       <div class="col-12">
         <div class="card my-4">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -281,6 +280,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
 @endsection
